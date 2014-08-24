@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<layout>
+    <default>
+        <reference name="head">
+            <block type="angular/constants" name="angular.constants" template="angular/constants.phtml" />
+            <action method="addJs">
+                <js>angular/angular.min.js</js>
+            </action>
+            <action method="addJs">
+                <js>angular-mage/angular-mage.min.js</js>
+            </action>
+        </reference>
+    </default>
+    <angular_demo_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+            <reference name="content">
+                <block type="core/template" name="angular.demo" template="angular/demo.phtml" />
+            </reference>
+        </reference>
+    </angular_demo_index>
+</layout>

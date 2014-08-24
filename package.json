@@ -1,0 +1,21 @@
+{
+  "name": "Hampe_Angular",
+  "version": "0.9.0",
+  "description": "AngularJS for Magento, with neat Magento-Functionality",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Thomas Hampe <github@hampe.co>",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp-util": "^3.0.0",
+    "gulp": "^3.8.7",
+    "gulp-rename": "^1.2.0",
+    "gulp-concat": "^2.3.4",
+    "gulp-uglify": "^0.3.1",
+    "gulp-ng-annotate": "^0.3.0",
+    "gulp-sourcemaps": "^1.1.1",
+    "del": "^0.1.2"
+  }
+}

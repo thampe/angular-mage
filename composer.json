@@ -1,0 +1,15 @@
+{
+    "name": "hampe/angular",
+    "type": "magento-module",
+    "license":"MIT",
+    "description":"AngularJS for Magento, with neat Magento-Functionality",
+    "authors":[
+        {
+            "name":"Thomas Hampe",
+            "email":"github@hampe.co"
+        }
+    ],
+    "require": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

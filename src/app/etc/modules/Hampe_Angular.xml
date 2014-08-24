@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<config>
+	<modules>
+		<Hampe_Angular>
+			<active>true</active>
+            <codePool>community</codePool>
+		</Hampe_Angular>
+	</modules>
+</config>

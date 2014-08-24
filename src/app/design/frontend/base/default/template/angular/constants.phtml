@@ -1,0 +1,30 @@
+<?php /* @var $this Hampe_Angular_Block_Script */ ?>
+<script type="text/javascript">
+    (function(){
+        'use strict';
+        angular
+            .module('mage.url')
+            .constant('baseUrl','<?php echo $this->getBaseUrl(); ?>')
+            .constant('skinUrl','<?php echo $this->getSkinUrl(); ?>')
+            .constant('mediaUrl','<?php echo $this->getMediaUrl(); ?>')
+            .constant('jsUrl','<?php echo $this->getJsUrl(); ?>')
+            .constant('baseUrlSecure','<?php echo $this->getBaseUrl(true); ?>')
+            .constant('skinUrlSecure','<?php echo $this->getSkinUrl(true); ?>')
+            .constant('mediaUrlSecure','<?php echo $this->getMediaUrl(true); ?>')
+            .constant('jsUrlSecure','<?php echo $this->getJsUrl(true); ?>')
+        ;
+
+        angular
+            .module('mage.customer')
+            .constant('customerLoggedIn', <?php echo $this->isCustomerLoggedIn(); ?>)
+        ;
+
+        angular
+            .module('mage.price')
+            .constant('priceFormat', <?php echo $this->getPriceFormat();?>);
+
+        angular
+            .module('mage.session')
+            .constant('authToken', '<?php echo $this->getAuthToken();?>');
+    })();
+</script>
