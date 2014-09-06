@@ -2,5 +2,4 @@ src/app/code/community/Hampe/Angular                        app/code/community/H
 src/app/etc/modules/Hampe_Angular.xml                       app/etc/modules/Hampe_Angular.xml
 src/app/design/frontend/base/default/layout/angular.xml     app/design/frontend/base/default/layout/angular.xml
 src/app/design/frontend/base/default/template/angular       app/design/frontend/base/default/template/angular
-src/app/design/frontend/base/default/template/angular-mage  app/design/frontend/base/default/template/angular-mage
 src/js/angular                                              js/angular
