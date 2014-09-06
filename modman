@@ -3,3 +3,4 @@ src/app/etc/modules/Hampe_Angular.xml                       app/etc/modules/Hamp
 src/app/design/frontend/base/default/layout/angular.xml     app/design/frontend/base/default/layout/angular.xml
 src/app/design/frontend/base/default/template/angular       app/design/frontend/base/default/template/angular
 src/js/angular                                              js/angular
+src/js/angular-mage                                         js/angular-mage
