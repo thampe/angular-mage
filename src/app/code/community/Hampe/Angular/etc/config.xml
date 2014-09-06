@@ -33,7 +33,6 @@
                     <model>catalog/category</model>
                     <allowed>true</allowed>
                 </category>
-                </customer_address>
             </models>
         </angular>
     </default>
