@@ -1,8 +1,8 @@
 # Magento on Angular-Steroids
-An Angular-Module(-Collection) with some neat Magento functionality.
+Angular-Modules with some neat Magento functionality.
 
 ## Installation
-Install it via [modman](https://github.com/colinmollenhour/modman). There is also a ``composer.json`` if you want to add it to *your* Composer-Repository. Or just copy the files in ``src/`` into your shop.
+Install it via [modman](https://github.com/colinmollenhour/modman). There is also a ``composer.json`` if you want to add it to *your* Composer-Repository. Or just copy the files in ``src/`` into your magento-instance.
 
 ## Usage
 
@@ -10,7 +10,7 @@ Install it via [modman](https://github.com/colinmollenhour/modman). There is als
 Required Angular Module: ``mage.url``
 
 Inspired by ``Mage::getUrl()``.
-Syntax: ``mageUrl.getUrl(path,params,secure)``
+Syntax: ``mageUrl.getUrl(path, params, secure)``
 
 ```javascript
 angular
@@ -18,20 +18,20 @@ angular
     .controller('DemoUrlCtrl', ['mageUrl', function(mageUrl){
 
         // Shop Url
-        var url = mageUrl.getUrl("catalog/product/view", {id: 1}); // => http://magento.dev/catalog/product/view?id=1
-        // Secure Shop Url (secure Parameter exists for url-types)
+        var url = mageUrl.getUrl('catalog/product/view', {id: 1}); // => http://magento.dev/catalog/product/view?id=1
+        // Secure Shop Url
         var secure = true;
-        var secureUrl = mageUrl.getUrl("catalog/product/view", {id: 1}, secure); // => https://magento.dev/catalog/product/view?id=1
+        var secureUrl = mageUrl.getUrl('catalog/product/view', {id: 1}, secure); // => https://magento.dev/catalog/product/view?id=1
 
         //media url
-        var mediaUrl = mageUrl.getMediaUrl('dhl/logo.png'); // => http://magento.dev/media/dhl/logo.png
+        var mediaUrl = mageUrl.getMediaUrl('dhl/logo.jpg'); // => http://magento.dev/media/dhl/logo.jpg
 
         //skin url
-        //ATTENTION: You need to provide the design folder in your url (e.g base/default)
-        var skinUrl = mageUrl.getSkinUrl('base/default/images/logo.png'); // => http://magento.dev/skin/base/default/images/logo.png
+        //ATTENTION: You need to provide the design folder (e.g frontend/base/default)
+        var skinUrl = mageUrl.getSkinUrl('frontend/default/default/images/logo.gif'); // => http://magento.dev/skin/frontend/default/default/images/logo.gif
 
         //js url
-        var jsUrl = mageUrl.getMediaUrl('angular/angular.min.js'); // => http://magento.dev/js/angular/angular.min.js
+        var jsUrl = mageUrl.getJsUrl('angular/angular.min.js'); // => http://magento.dev/js/angular/angular.min.js
 
     }]);
 ;
@@ -40,11 +40,11 @@ angular
 ### Models and Collections
 Required Angular Module: ``mage.model``
 
-Query for *any* Model/Collection you like. By default you can query for ``catalog/product`` and ``catlog/category`` are enabled.
+Query *any* Model/Collection you like. By default ``catalog/product`` and ``catlog/category`` are enabled.
 
 #### Models
 Inspired by ``Mage::getModel($modelClass)->load($id, $identifier = null)``.
-Syntax: ``mageModel.getModel(modelClass, id, identifier);``, the identifier is optional and if not set defaults to the ``id`` of the model.
+Syntax: ``mageModel.getModel(modelClass, id, identifier);``, the identifier is optional and if not set defaults to the ``identifierName`` of the model.
 
 ##### Examples
 
@@ -54,8 +54,8 @@ angular
     .controller('DemoModelCtrl', ['mageModel', function(mageModel){
 
         //get the category with entity_id 3
-        mageModel.getModel('catalog/category', 3).then(function (product) {
-           console.log(product);
+        mageModel.getModel('catalog/category', 3).then(function (category) {
+           console.log(category);
         });
 
         //get the product with sku 'ABC1234'
@@ -73,7 +73,7 @@ Inspired by ``Mage::getModel($modelClass)->getCollection()``.
 Syntax: ``mageModel.getCollection(modelClass, filters, select, limit, page);``.
 
 * ``filters`` work like ``$collection->addAttributeToFilter()`` or ``$collection->addFieldToFilter()``
-* ``select`` work like ``collection->addAttributeToSelect()``
+* ``select`` works like ``collection->addAttributeToSelect()``
 * ``limit`` limits the collection size.
 * ``page`` the current page, only useful in combination with ``limit``
 
@@ -115,7 +115,7 @@ Enable more Models, by adding them to your ``config.xml``
                     <model>namespace/class</model> <!-- e.g customer/address -->
                     <allowed>true</allowed> <!-- optional: setting this to false will disbale this model -->
                     <serializer>namespace/serializer_class</serializer>
-                    <!-- optional: if you want to use a diffrent serializer (Default: Hampe_Angular_Model_Serializer_Default), must implement the Hampe_Angular_Model_Serializer_Interface Interface -->
+                    <!-- optional: if you want to use a diffrent serializer (Default: Hampe_Angular_Model_Serializer_Default), your serializer must implement the Hampe_Angular_Model_Serializer_Interface  -->
                 </unique_identifier>
                 <!-- (...) -->
             </models>
@@ -126,9 +126,7 @@ Enable more Models, by adding them to your ``config.xml``
 
 ### Display Prices
 Required Angular Module: ``mage.price``
-Displays a price in the shop currency.
-
-
+Display a price in the shop currency.
 
 #### Price Service
 
@@ -175,7 +173,7 @@ angular
     .controller('DemoTranslatorCtrl', ['mageTranslator', function(mageTranslator){
 
         //add translation on the fly
-        mageTranslator.translate('Hello World', 'Hallo Welt');
+        mageTranslator.add('Hello World', 'Hallo Welt');
 
         // translate
         var germanHelloWorld = mageTranslator.translate('Hello World') // => "Hallo Welt"
@@ -219,12 +217,12 @@ angular
 
 For convenience, there is also an angular module ``mage``, which requires all mage-modules.
 
-All ajax-Requests include an auth-token (tied to the user session) in the header, to make cross-site-scripting-attacks more difficult ;).
+All AJAX-Requests include an auth-token (tied to the user session) in the header, to make XSS-attacks more difficult.
 
-This software is not battle-tested (yet) and bugs are inclued for free.
+This software is not battle-tested (yet), so bugs are inclued for free.
 
 ## Build
-Use [gulp](http://gulpjs.com) to build and minify the javascript, if you feel the need to change something. Issues and Pull requests are appreciated.
+Use [gulp](http://gulpjs.com) to build and minify the javascript, if you feel the need to change or fix something. Issues and Pull requests are appreciated.
 
 ## License
 See the [LICENSE](LICENSE) file for license info (it's the MIT license).
