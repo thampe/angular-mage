@@ -1,17 +1,17 @@
-<?php /* @var $this Hampe_Angular_Block_Script */ ?>
+<?php /* @var $this Hampe_Angular_Block_Constants */ ?>
 <script type="text/javascript">
     (function(){
         'use strict';
         angular
             .module('mage.url')
             .constant('baseUrl','<?php echo $this->getBaseUrl(); ?>')
-            .constant('skinUrl','<?php echo $this->getSkinUrl(); ?>')
-            .constant('mediaUrl','<?php echo $this->getMediaUrl(); ?>')
-            .constant('jsUrl','<?php echo $this->getJsUrl(); ?>')
+            .constant('skinUrl','<?php echo $this->getBaseSkinUrl(); ?>')
+            .constant('mediaUrl','<?php echo $this->getBaseMediaUrl(); ?>')
+            .constant('jsUrl','<?php echo $this->getBaseJsUrl(); ?>')
             .constant('baseUrlSecure','<?php echo $this->getBaseUrl(true); ?>')
-            .constant('skinUrlSecure','<?php echo $this->getSkinUrl(true); ?>')
-            .constant('mediaUrlSecure','<?php echo $this->getMediaUrl(true); ?>')
-            .constant('jsUrlSecure','<?php echo $this->getJsUrl(true); ?>')
+            .constant('skinUrlSecure','<?php echo $this->getBaseSkinUrl(true); ?>')
+            .constant('mediaUrlSecure','<?php echo $this->getBaseMediaUrl(true); ?>')
+            .constant('jsUrlSecure','<?php echo $this->getBaseJsUrl(true); ?>')
         ;
 
         angular

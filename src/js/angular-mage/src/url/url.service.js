@@ -18,26 +18,22 @@
         jsUrlSecure
         ){
         this.getUrl = function(path, params, secure) {
-            params = params || {};
             return _getUrl(secure ? baseUrl : baseUrlSecure, path, params)
         };
         this.getSkinUrl = function(path, params, secure) {
-            params = params || {};
             return _getUrl(secure ? skinUrl : skinUrlSecure, path, params)
         };
         this.getMediaUrl = function(path, params, secure) {
-            params = params || {};
             return _getUrl(secure ? mediaUrl : mediaUrlSecure, path, params)
         };
         this.getJsUrl = function(path, params, secure) {
-            params = params || {};
             return _getUrl(secure ? jsUrl : jsUrlSecure, path, params)
         };
 
         function _getUrl(baseUrl, path, params) {
-
             path = path || "";
-
+            params = params || {};
+            
             var url = baseUrl + path;
             var query = queryBuilder(params);
             if(query) {
@@ -58,7 +54,7 @@
             s[ s.length ] = encodeURIComponent(key) + "=" + encodeURIComponent(value);
         };
         if (a instanceof Array) {
-            for (name in a) {
+            for (var name = 0; name < a.length; a++) {
                 add(name, a[name]);
             }
         } else {

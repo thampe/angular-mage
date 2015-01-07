@@ -28,7 +28,7 @@ class Hampe_Angular_Block_Constants extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getMediaUrl($secure = false)
+    public function getBaseMediaUrl($secure = false)
     {
         return Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA, $secure);
     }
@@ -38,7 +38,7 @@ class Hampe_Angular_Block_Constants extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getSkinUrl($secure = false)
+    public function getBaseSkinUrl($secure = false)
     {
         return Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN, $secure);
     }
@@ -48,7 +48,7 @@ class Hampe_Angular_Block_Constants extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getJsUrl($secure = false)
+    public function getBaseJsUrl($secure = false)
     {
         return Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS, $secure);
     }
