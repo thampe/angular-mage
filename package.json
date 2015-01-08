@@ -1,6 +1,6 @@
 {
   "name": "Hampe_Angular",
-  "version": "0.9.1",
+  "version": "1.0.0",
   "description": "AngularJS for Magento, with neat Magento-Functionality",
   "main": "gulpfile.js",
   "scripts": {
