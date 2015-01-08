@@ -18,16 +18,16 @@
         jsUrlSecure
         ){
         this.getUrl = function(path, params, secure) {
-            return _getUrl(secure ? baseUrl : baseUrlSecure, path, params)
+            return _getUrl(!secure ? baseUrl : baseUrlSecure, path, params)
         };
         this.getSkinUrl = function(path, params, secure) {
-            return _getUrl(secure ? skinUrl : skinUrlSecure, path, params)
+            return _getUrl(!secure ? skinUrl : skinUrlSecure, path, params)
         };
         this.getMediaUrl = function(path, params, secure) {
-            return _getUrl(secure ? mediaUrl : mediaUrlSecure, path, params)
+            return _getUrl(!secure ? mediaUrl : mediaUrlSecure, path, params)
         };
         this.getJsUrl = function(path, params, secure) {
-            return _getUrl(secure ? jsUrl : jsUrlSecure, path, params)
+            return _getUrl(!secure ? jsUrl : jsUrlSecure, path, params)
         };
 
         function _getUrl(baseUrl, path, params) {
