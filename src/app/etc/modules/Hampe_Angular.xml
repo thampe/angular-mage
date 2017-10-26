@@ -3,7 +3,7 @@
 	<modules>
 		<Hampe_Angular>
 			<active>true</active>
-            <codePool>community</codePool>
+                        <codePool>community</codePool>
 		</Hampe_Angular>
 	</modules>
 </config>
