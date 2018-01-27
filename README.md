@@ -1,3 +1,7 @@
+# This repository is no longer maintained.
+ 
+Issue reports and pull requests will not be attended.
+
 # Magento on Angular-Steroids
 Angular-Modules with some neat Magento functionality.
 
